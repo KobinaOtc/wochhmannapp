@@ -1,33 +1,49 @@
 import React, { Component } from 'react'
+// import { Font } from 'expo'
 import { StyleSheet, Text, View } from 'react-native'
 import { AppLoading } from 'expo'
 import { Root } from 'native-base'
 import { createAppContainer } from 'react-navigation'
 import NavigationServices from './src/navigation/NavigationServices'
+import RootStack from './src/navigation/NavStack'
 
-export default class App extends Component {
+class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      ready: false
+      fontLoaded: false,
+      signedIn: false
     }
     this.prevAppState = 'active'
+  }
+  componentDidMount () {
+    let login = false
+    if (login) { this.setState({ signedIn: true }) }
+  }
+
+  // async componentWillMount () {
+  //   await Font.loadAsync({
+  //     'Roboto': require('native-base/Fonts/Roboto.ttf'),
+  //     'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+  //     'Ionicons': require('@expo/vector-icons/fonts/Ionicons.ttf')
+  //   })
+  //   this.setState({ fontLoaded: true })
+  // }
+
+  initRender = () => {
+    const { signedIn } = this.state
+    const Layout = createAppContainer(RootStack(signedIn))
+    // if (!fontLoaded) return null
+    return <Layout ref={navigatorRef => { NavigationServices.setTopLevelNavigator(navigatorRef) }}/>
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open to start working on your app!</Text>
-      </View>
+      <Root>
+        {this.initRender()}
+      </Root>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
