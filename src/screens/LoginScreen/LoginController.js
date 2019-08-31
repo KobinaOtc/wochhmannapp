@@ -1,15 +1,40 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { Spinner } from 'native-base'
 
-import { globalStyles } from '../../common/commonStyles'
+import { globalStyles, Button } from '../../common'
 
 import LoginView from './LoginView'
 
 class LoginController extends Component {
+  constructor () {
+    super()
+    this.state = {
+      email: '',
+      password: '',
+      activityIndicator: false
+    }
+  }
+  handleInput = (key, text) => {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        [key]: text
+      }
+    })
+  }
+
+  renderSignInButton = () => {
+    if (this.state.activityIndicator) {
+      return <Spinner color='Gold' />
+    }
+    return <Button />
+  }
   render() {
     return (
       <View style={globalStyles.basicContainerStyles}>
-        <LoginView/>
+        <LoginView {...this.state}
+          handleInput={this.handleInput} />
       </View>   
     )
   }

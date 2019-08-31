@@ -22,12 +22,24 @@ const logo = require('../../../assets/icon.png')
                <Text style={styles.textOneStyles}>SIGN IN</Text>
                <Item style={styles.itemStyles}>
                  <Input style={styles.inputStyles}
-                  placeholder='Email' />
+                  onChangeText={text => this.props.handleInput('email', text)}
+                  placeholder='Email'
+                  value={this.props.email}
+                  maxLength={250}
+                  returnKeyType='next'
+                  autoCapitalize='none'
+                  keyboardType='email-address' />
                </Item>
 
                <Item style={styles.itemStyles}>
                  <Input style={styles.inputStyles}
-                  placeholder='Password' />  
+                  onChangeText={text => this.props.handleInput('password', text)}                  
+                  placeholder='Password'
+                  value={this.props.password}
+                  maxLength={250}
+                  returnKeyType='done'
+                  secureTextEntry
+                  autoCapitalize='none' />  
                </Item>
 
             </Form>
