@@ -7,6 +7,8 @@ import { createAppContainer } from 'react-navigation'
 import NavigationServices from './src/navigation/NavigationServices'
 import RootStack from './src/navigation/NavStack'
 
+import Initialize from './initialize'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -40,6 +42,7 @@ class App extends Component {
   render() {
     return (
       <Root>
+        <Initialize navigation={NavigationServices} />
         {this.initRender()}
       </Root>
     )
