@@ -4,6 +4,8 @@ import { Icon } from 'native-base'
 import { createDrawerNavigator, createStackNavigator, createSwitchNavigator } from 'react-navigation'
 
 import LoginScreen from '../screens/LoginScreen'
+import SignUpScreen from '../screens/SignUpScreen'
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen'
 import HomeScreen from '../screens/HomeScreen'
 
 import { styles } from './styles'
@@ -50,6 +52,18 @@ const Homestack = createStackNavigator({
 const LoginStack = createStackNavigator({
   LoginScreen: {
     screen: LoginScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerMode: 'none'
+    })
+  },
+  SignUpScreen: {
+    screen: SignUpScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerMode: 'none'
+    })
+  },
+  ForgotPasswordScreen: {
+    screen: ForgotPasswordScreen,
     navigationOptions: ({ navigation }) => ({
       headerMode: 'none'
     })

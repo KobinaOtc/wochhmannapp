@@ -9,7 +9,7 @@ class LoginScreen extends Component {
   render() {
     return (
       <View style={globalStyles.basicContainerStyles}>
-        <LoginController/>
+        <LoginController navigation={this.props.navigation} />
       </View>
       
     )
