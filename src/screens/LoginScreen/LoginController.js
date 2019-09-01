@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Spinner } from 'native-base'
 
-import { globalStyles, Button } from '../../common'
+import { globalStyles, Button, basicButton } from '../../common'
 
 import LoginView from './LoginView'
 
@@ -28,13 +28,14 @@ class LoginController extends Component {
     if (this.state.activityIndicator) {
       return <Spinner color='Gold' />
     }
-    return <Button />
+    return <Button title='SIGN IN' onPress={() => console.log('I am signing in')} style={basicButton} />
   }
   render() {
     return (
       <View style={globalStyles.basicContainerStyles}>
         <LoginView {...this.state}
-          handleInput={this.handleInput} />
+          handleInput={this.handleInput}
+          renderSignInButton={this.renderSignInButton} />
       </View>   
     )
   }

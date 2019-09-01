@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
    paddingHorizontal: '12%'
   },  
   childOneView: {
-    flex: 2,
+    flex: 4,
     paddingTop: '20%',
     justifyContent: 'center',
     alignContent: 'center'

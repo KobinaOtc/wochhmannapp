@@ -43,6 +43,9 @@ const logo = require('../../../assets/icon.png')
                </Item>
 
             </Form>
+            <View style={styles.childViewThree}>
+              {this.props.renderSignInButton()}
+            </View>
           </Content>   
        </Container>  
      )
