@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Spinner } from 'native-base'
 
-import { globalStyles, Button, basicButton } from '../../common'
+import { globalStyles, Button, basicButton, validateEmail } from '../../common'
+import * as firebase from 'firebase'
 
 import LoginView from './LoginView'
 
@@ -10,8 +11,8 @@ class LoginController extends Component {
   constructor () {
     super()
     this.state = {
-      email: '',
-      password: '',
+      email: 'admin@email.com',
+      password: 'asfd1234',
       activityIndicator: false
     }
   }
@@ -28,8 +29,31 @@ class LoginController extends Component {
     if (this.state.activityIndicator) {
       return <Spinner color='Gold' />
     }
-    return <Button title='SIGN IN' onPress={() => console.log('I am signing in')} style={basicButton} />
+    return <Button title='SIGN IN' onPress={() => this.checkInputs()} style={basicButton} />
   }
+
+  checkInputs = () => {
+    if (this.state.email === '' || this.state.password ==='') {
+      console.log('Please enter email and password')
+      return
+    }
+    if (!validateEmail(this.state.email)) {
+      console.log('Please enter valid email')
+      return
+    }
+    this.handleSubmit()
+  }
+
+  handleSubmit = () => {
+    this.setState({ activityIndicator: true })
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(res => console.log(res))
+       .catch(err => {
+         this.setState({ activityIndicator: false })
+         console.log(err)
+        })
+  }
+
   render() {
     return (
       <View style={globalStyles.basicContainerStyles}>
