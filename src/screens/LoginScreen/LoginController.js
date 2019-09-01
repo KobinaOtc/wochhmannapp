@@ -34,6 +34,7 @@ class LoginController extends Component {
     return (
       <View style={globalStyles.basicContainerStyles}>
         <LoginView {...this.state}
+          navigation={this.props.navigation}
           handleInput={this.handleInput}
           renderSignInButton={this.renderSignInButton} />
       </View>   
