@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, Text } from 'react-native'
+import { View, Image, Text, TouchableOpacity } from 'react-native'
 import { Content, Container, Form, Input, Item } from 'native-base'
 
 import { styles } from './styles'
@@ -45,6 +45,21 @@ const logo = require('../../../assets/icon.png')
             </Form>
             <View style={styles.childViewThree}>
               {this.props.renderSignInButton()}
+            </View>
+            <View style={styles.childViewFour}>
+              <View style={styles.buttonRowSectionStyles}>
+                <Text>Don't have an account?</Text>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('SignUpScreen')}>
+                  <Text style={styles.linkStyles}> Sign up</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[{ alignSelf: 'center' }, styles.childViewFour]}>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('ForgotPasswordScreen')}>
+                  <Text style={styles.linkStyles}>Forgot Password?</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </Content>   
        </Container>  

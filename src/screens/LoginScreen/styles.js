@@ -46,5 +46,15 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: moderateScale(25),
     fontWeight: fontWeight
+  },
+  buttonRowSectionStyles: {
+    flex: 1,
+    flexDirection: 'row',
+    // justifyContent: 'space-around',
+    alignSelf: 'center'
+  },
+  linkStyles: {
+    color:'#e93766',
+    fontSize: 18
   }
 })
