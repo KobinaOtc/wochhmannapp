@@ -14,6 +14,9 @@ export const borderWidth = 1.5
 export const paddingHorizontal = '5%'
 export const fontWeight = '400'
 
+// Toast duration
+export const toastDuration = 1000
+
 // Common Styling
 export const globalStyles = StyleSheet.create({
   basicContainerStyles: {
