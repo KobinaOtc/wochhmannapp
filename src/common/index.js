@@ -1,4 +1,5 @@
 export * from './components/Button'
 export * from './components/Toast'
+export * from './components/Modal'
 export * from './commonStyles'
 export * from './validateEmail'
