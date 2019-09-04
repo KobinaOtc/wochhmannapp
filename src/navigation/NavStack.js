@@ -7,6 +7,7 @@ import LoginScreen from '../screens/LoginScreen'
 import SignUpScreen from '../screens/SignUpScreen'
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen'
 import HomeScreen from '../screens/HomeScreen'
+import LogoutScreen from '../screens/LogoutScreen'
 
 import { styles } from './styles'
 
@@ -19,10 +20,11 @@ const noTransitionConfig = () => ({
 })
 
 const DrawerNav = createDrawerNavigator({
-  'Home': { screen: HomeScreen }
+  'Home': { screen: HomeScreen },
+  'Sign Out': { screen: LogoutScreen }
 }, {
   contentOptions: {
-    activeTintColor: 'yellow',
+    activeTintColor: '#d5be00',
     labelStyle: styles.drawerLabelStyles,
     itemContainerStyle: {
       marginTop: 0
