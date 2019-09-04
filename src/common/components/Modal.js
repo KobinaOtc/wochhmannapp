@@ -1,26 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View, Text, Modal as RnModal, TouchableOpacity, TouchableHighLight } from 'react-native'
+import { Button } from '../../common'
 
-const Modal = (isVisible, toggleModal, modalConfirm) => {
+const Modal = (props) => {
 
   return (
-    <RnModal visible={isVisible} onRequestClose={toggleModal}>
-        <TouchableOpacity>
-          <View>
-              <View>
-              <Text>SIGN OUT</Text>
-              <Text>Are you sure you want to sign out?</Text>
-              </View>
-              <View>
-              <TouchableHighLight onPress={modalConfirm}>
-                  <Text>Yes</Text>
-              </TouchableHighLight>
-              <TouchableHighLight onPress={toggleModal}>
-                  <Text>No</Text>
-              </TouchableHighLight>
-              </View>
+    <RnModal visible={props.isVisible} onRequestClose={props.toggleModal}>
+      <TouchableOpacity activeOpacity={1} disabled={true} style={props.styles.contentContainer}>
+        <View style={props.styles.modal}>
+          <View style={props.styles.textView}>
+          <Text style={[props.styles.text, { fontSize: 20 }]}>SIGN OUT</Text>
+          <Text style={props.styles.text}>Are you sure you want to sign out?</Text>
           </View>
-        </TouchableOpacity>
+          <View style={props.styles.buttonView}>
+            <Button title='Yes' onPress={() => props.modalConfirm()} style={props.styles.basicButton} />
+            <Button title='No' onPress={() => props.toggleModal()} style={props.styles.basicButton} />
+          </View>
+        </View>
+      </TouchableOpacity>
     </RnModal>
   )
 }
