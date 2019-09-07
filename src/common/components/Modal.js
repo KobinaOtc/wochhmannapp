@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Modal as RnModal, TouchableOpacity, TouchableHighLight } from 'react-native'
-import { Button } from '../../common'
+import { Button, basicButton } from '../index'
 
 const Modal = (props) => {
 
@@ -13,8 +13,8 @@ const Modal = (props) => {
           <Text style={props.styles.text}>Are you sure you want to sign out?</Text>
           </View>
           <View style={props.styles.buttonView}>
-            <Button title='Yes' onPress={() => props.modalConfirm()} style={props.styles.basicButton} />
-            <Button title='No' onPress={() => props.toggleModal()} style={props.styles.basicButton} />
+            <Button title='Yes' onPress={() => props.modalConfirm()} style={basicButton} />
+            <Button title='No' onPress={() => props.toggleModal()} style={basicButton} />
           </View>
         </View>
       </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
 import { styles, modalStyles } from './styles'
 
@@ -18,8 +18,7 @@ class LogoutScreen extends Component {
   render () {
     return (
       <View style={styles.contentContainer}>
-        <Modal
-          styles={modalStyles}
+        <Modal styles={modalStyles}
           isVisible={this.state.modalVisible}
           toggleModal={this.handleVisibility}
           modalConfirm={this.handleVisibility} />

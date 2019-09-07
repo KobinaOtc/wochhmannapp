@@ -42,6 +42,8 @@ export const modalStyles = StyleSheet.create({
   },
   buttonView: {
     width: '100%',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignSelf: 'center'
   }
 })
