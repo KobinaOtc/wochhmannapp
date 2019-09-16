@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
+import * as firebase from 'firebase'
 
 import { styles, modalStyles } from './styles'
 
@@ -13,7 +14,20 @@ class LogoutScreen extends Component {
     }
   }
 
-  handleVisibility = () => this.setState({ modalVisible: !this.state.modalVisible })
+  handleVisibility = () => {
+    this.setState(prevState => { 
+      return { modalVisible: !this.state.modalVisible } 
+    })
+    this.props.navigation.goBack()
+  }
+
+  handleLogout = () => {
+    this.setState(prevState => { 
+      return { modalVisible: !this.state.modalVisible } 
+    })
+    firebase.auth().signOut()
+    this.props.navigation.navigate('loginStack')
+  }
   
   render () {
     return (
@@ -21,7 +35,7 @@ class LogoutScreen extends Component {
         <Modal styles={modalStyles}
           isVisible={this.state.modalVisible}
           toggleModal={this.handleVisibility}
-          modalConfirm={this.handleVisibility} />
+          modalConfirm={this.handleLogout} />
       </View>
     )
   }
