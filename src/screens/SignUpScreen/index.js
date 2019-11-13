@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 
+import SignUpController from './SignUpController'
+
 class SignUpScreen extends Component {
   render () {
     return (
-      <View>
-        <Text>
-          SignUpScreen is active on NavStack
-        </Text>
-      </View>
+      <SignUpController navigation={this.props.navigation} />
     )
   }
 }
