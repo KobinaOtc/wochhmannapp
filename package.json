@@ -10,6 +10,7 @@
   "dependencies": {
     "expo": "^34.0.1",
     "firebase": "^6.5.0",
+    "libphonenumber-js": "^1.7.26",
     "mem": "^4.0.0",
     "native-base": "^2.13.4",
     "react": "16.8.3",
